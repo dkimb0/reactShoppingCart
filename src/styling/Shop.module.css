@@ -1,0 +1,8 @@
+.productCardContainer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.productCardContainer > * {
+    height: 600px;
+}

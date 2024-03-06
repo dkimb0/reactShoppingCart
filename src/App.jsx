@@ -9,8 +9,10 @@ function App() {
   return (
     <>
       <Navbar />
-      <h1>Welcome Home</h1>
-      <img src={beachImage} alt="beach" width="auto" height="400" />
+      <div className='mainContainer'>
+        <h1>Welcome Home</h1>
+        <img src={beachImage} alt="beach" width="auto" height="400" />
+      </div>
     </>
   )
 }

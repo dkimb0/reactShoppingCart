@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import Navbar from './Navbar';
 
 
-const ShoppingCart =() => {
+const Cart =() => {
     return (
         <>
             <Navbar />
-            <h1>Shopping Cart</h1>
+            <h1>Cart</h1>
         </>
     )
 }
 
-export default ShoppingCart
+export default Cart
