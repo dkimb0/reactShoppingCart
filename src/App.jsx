@@ -1,13 +1,16 @@
-import { useState } from 'react'
-import { Link } from 'react-router-dom'
-import './App.css'
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './App.css';
+import Navbar from './components/Navbar';
+import beachImage from './assets/beach.jpg';
 
 function App() {
 
   return (
     <>
-      <h1>Home Page</h1>
-      <Link to='shoppingcart'>Shopping Cart</Link>
+      <Navbar />
+      <h1>Welcome Home</h1>
+      <img src={beachImage} alt="beach" width="auto" height="400" />
     </>
   )
 }
