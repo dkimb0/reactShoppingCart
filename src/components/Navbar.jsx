@@ -8,13 +8,15 @@ const Navbar = ({handleToggleCart, qty, hasCart = false}) => {
                 <li>
                     <Link to='/'>Home</Link>
                 </li>
-                <li>
+                <li className={styles.centerLink}>
                     <Link to="/shop">Shop</Link>
                 </li>
-                {hasCart&&(
+                {hasCart?(
                     <li>
-                        <button onClick={handleToggleCart}>Cart ({qty})</button>
+                        <button className={styles.cart} onClick={handleToggleCart}>Cart ({qty})</button>
                     </li>
+                ):(
+                    <li className={styles.navbarFiller}></li>
                 )}
             </ul>
         </nav>

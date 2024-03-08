@@ -3,8 +3,8 @@
     list-style: none;
     display: flex;
     flex-direction: row;
-    gap: 10px;
-    justify-content: center;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .navbar{
@@ -12,4 +12,27 @@
     top: 0;
     width: 100%;
     background-color: grey;
+}
+
+a{
+    text-decoration: none;
+    color: white;
+
+}
+
+a:hover{
+    color: pink;
+}
+
+.cart{
+    margin-left: auto;
+}
+
+.centerLink{
+    flex: 1;
+    text-align: center;
+}
+
+.navbarFiller{
+    width: 61.19px;
 }
