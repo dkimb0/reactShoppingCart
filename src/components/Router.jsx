@@ -5,6 +5,7 @@ import Cart from './Cart'
 import ErrorPage from "./ErrorPage";
 
 const Router = () => {
+
     const router = createBrowserRouter([
         {
             path:'/',
@@ -15,10 +16,6 @@ const Router = () => {
             path:'/shop',
             element: <Shop />,
         },
-        {
-            path: '/cart',
-            element: <Cart />,
-        }
     ])
 
     return <RouterProvider router = {router} />;
