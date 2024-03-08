@@ -1,7 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from '../App'
 import Shop from './Shop'
-import Cart from './Cart'
 import ErrorPage from "./ErrorPage";
 
 const Router = () => {
