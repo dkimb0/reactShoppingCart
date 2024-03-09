@@ -31,7 +31,7 @@ const ProductCard = ({ productInfo, handleAddToCart }) => {
                     <button onClick={() => setQuantity(quantity + 1)}>+</button>
                 </div>
                 <button onClick={() => {
-                    handleAddToCart(productInfo.id, productInfo.price, quantity, productInfo.title)
+                    handleAddToCart(productInfo.id, productInfo.price, quantity, productInfo.title, productInfo.image)
                     setQuantity(1)
                 }
                 }>Add to Cart</button>

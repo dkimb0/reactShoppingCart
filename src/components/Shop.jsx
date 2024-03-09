@@ -39,15 +39,15 @@ const Shop =() => {
                 .finally(() => setLoading(false));
     },[]);
 
-    const handleAddToCart = (id, price, quantity, title) => {
+    const handleAddToCart = (id, price, quantity, title, image) => {
         setCartArray(currentArray => {
             const numericQuantity = Number(quantity);
             const itemIndex = currentArray.findIndex(item => item.id === id)
-            if (itemIndex === -1) return [...currentArray, {id: id, title: title, price: price, quantity: numericQuantity, }]
+            if (itemIndex === -1) return [...currentArray, {id: id, title: title, price: price, quantity: numericQuantity, image: image}]
             
             const newQuantity = currentArray[itemIndex].quantity + numericQuantity;
 
-            currentArray[itemIndex] = {id: id, title: title, price: price, quantity: newQuantity};
+            currentArray[itemIndex] = {id: id, title: title, price: price, quantity: newQuantity, image: image};
             const newArray = [...currentArray]
             return newArray;
         })
@@ -75,20 +75,38 @@ const Shop =() => {
                             {(cartArray.length === 0 ? (
                                 <p>Cart is empty!</p>):(
                                  <>
-                                    <ul>
-                                        {cartArray.map(item => (
-                                            <li key={crypto.randomUUID()}>
-                                                <p>
-                                                    {item.title} ${item.price} QTY: {item.quantity}
-                                                    <button onClick={() => handleDeleteCart(item.id)}>Delete</button>
-                                                </p>
-                                            </li>
-                                        ))}
-                                    </ul>
+                                    <table className={styles.cartTable}>
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Product</th>
+                                                <th>Price</th>
+                                                <th>Quantity</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {cartArray.map(item => (
+                                                <tr key={crypto.randomUUID()}>
+                                                    <td>
+                                                        <img className={styles.cartThumbnail}
+                                                        src={item.image} alt="thumbnail" />
+                                                    </td>
+                                                    <td>{item.title}</td>
+                                                    <td>${item.price}</td>
+                                                    <td>{item.quantity}</td>
+                                                    <td>
+                                                        <button onClick={() => handleDeleteCart(item.id)}>X</button>
+                                                    </td>
+                                                </tr>
+                                            )
+                                            )}
+                                        </tbody>
+                                    </table>
 
-                                    <p>Total: ${cartArray.reduce((accumulator, item) => {
+                                    <p>Subtotal: ${cartArray.reduce((accumulator, item) => {
                                         return accumulator + item.quantity * item.price;
-                                    }, 0)}</p>
+                                    }, 0).toFixed(2)}</p>
 
                                     <button className={styles.checkoutButton}>Go to Checkout!</button>
                                  </>
