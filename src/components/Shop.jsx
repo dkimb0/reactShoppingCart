@@ -72,28 +72,28 @@ const Shop =() => {
     return (
         <>
             <Navbar handleToggleCart={handleToggleCart} qty={qty} hasCart ={true}/>
-            {
-                cartOpen && (
-                    cartArray.length === 0 ?
-                    (
-                        <p>Cart is empty!</p>
-                    ):(
-                        <div id="cartContainer" >
-                            <ul>
-                                {cartArray.map(item => (
-                                    <li>
-                                        <p>
-                                            {item.title} ${item.price} QTY: {item.quantity}
-                                            <button onClick={() => handleDeleteCart(item.id)}>Delete</button>
-                                        </p>
-                                    </li>
-                                ))}
-                            </ul>
-                            <button>Go to Checkout!</button>
+            {cartOpen && (
+                        <div className={styles.cartContainer} >
+                            {(cartArray.length === 0 ? (
+                                <p>Cart is empty!</p>):(
+                                 <>
+                                    <ul>
+                                        {cartArray.map(item => (
+                                            <li>
+                                                <p>
+                                                    {item.title} ${item.price} QTY: {item.quantity}
+                                                    <button onClick={() => handleDeleteCart(item.id)}>Delete</button>
+                                                </p>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    
+                                    <button className={styles.checkoutButton}>Go to Checkout!</button>
+                                 </>
+                                )
+                            )}
                         </div>
                     )
-
-                )
             }
             <h1>Shop</h1>
             {loading ? (

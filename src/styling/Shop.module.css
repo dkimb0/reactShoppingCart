@@ -8,3 +8,24 @@
 h1 {
     margin-top: 60px;
 }
+
+.cartContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+
+    background-color: rgba(184, 160, 160, 0.75);
+    border: 1px solid black;
+    border-radius: 24px;
+    position: fixed;
+    top: 3.5rem;
+    right: 0;
+
+    width: 15%;
+}
+
+.checkoutButton{
+    width: fit-content;
+    margin-bottom: 1rem;
+}
