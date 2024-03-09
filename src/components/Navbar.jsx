@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 import styles from "../styling/Navbar.module.css"
+import PropTypes from 'prop-types';
+
 
 const Navbar = ({handleToggleCart, qty, hasCart = false}) => {
     return (
@@ -21,6 +23,12 @@ const Navbar = ({handleToggleCart, qty, hasCart = false}) => {
             </ul>
         </nav>
     )
+}
+
+Navbar.propTypes = {
+    handleToggleCart: PropTypes.func,
+    qty: PropTypes.number,
+    hasCart: PropTypes.bool,
 }
 
 export default Navbar

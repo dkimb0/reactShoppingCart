@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import ProductCard from "./ProductCard";
 import styles from "../styling/Shop.module.css"
-import PropTypes from 'prop-types';
 
 
 
@@ -103,7 +102,7 @@ const Shop =() => {
                 <p>Loading...</p>
             ):(
                 <div className={styles.productCardContainer}>
-                    {productList.map((product, index) => (
+                    {productList.map((product) => (
                         <ProductCard
                             key={crypto.randomUUID()}
                             productInfo = {product}

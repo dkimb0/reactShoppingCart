@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import styles from "../styling/ProductCard.module.css"
+import PropTypes from 'prop-types';
+
 
 const ProductCard = ({ productInfo, handleAddToCart }) => {
 
@@ -38,6 +39,16 @@ const ProductCard = ({ productInfo, handleAddToCart }) => {
 
         </div>
     )
+}
+
+ProductCard.propTypes ={
+    productInfo: PropTypes.shape({
+        id: PropTypes.number,
+        price: PropTypes.number,
+        title: PropTypes.string,
+        image: PropTypes.string,
+    }),
+    handleAddToCart: PropTypes.func,
 }
 
 export default ProductCard
