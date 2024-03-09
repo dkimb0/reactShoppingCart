@@ -7,7 +7,6 @@ import PropTypes from 'prop-types';
 
 
 
-
 const Shop =() => {
     const [productList, setProductList] = useState([]);
 
@@ -79,7 +78,7 @@ const Shop =() => {
                                  <>
                                     <ul>
                                         {cartArray.map(item => (
-                                            <li>
+                                            <li key={crypto.randomUUID()}>
                                                 <p>
                                                     {item.title} ${item.price} QTY: {item.quantity}
                                                     <button onClick={() => handleDeleteCart(item.id)}>Delete</button>
@@ -87,7 +86,11 @@ const Shop =() => {
                                             </li>
                                         ))}
                                     </ul>
-                                    
+
+                                    <p>Total: ${cartArray.reduce((accumulator, item) => {
+                                        return accumulator + item.quantity * item.price;
+                                    }, 0)}</p>
+
                                     <button className={styles.checkoutButton}>Go to Checkout!</button>
                                  </>
                                 )
@@ -102,6 +105,7 @@ const Shop =() => {
                 <div className={styles.productCardContainer}>
                     {productList.map((product, index) => (
                         <ProductCard
+                            key={crypto.randomUUID()}
                             productInfo = {product}
                             handleAddToCart = {handleAddToCart}
                         ></ProductCard>

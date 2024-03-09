@@ -25,8 +25,7 @@ const ProductCard = ({ productInfo, handleAddToCart }) => {
                         }
                     }}>-</button>
                     <input type="text" id="quantity" name="quantity" 
-                        onChange={(e) => {setQuantity(e.target.value)
-                        console.log(quantity)}} value={quantity} defaultValue={1}/>
+                        onChange={(e) => setQuantity(e.target.value)} value={quantity}/>
 
                     <button onClick={() => setQuantity(quantity + 1)}>+</button>
                 </div>
