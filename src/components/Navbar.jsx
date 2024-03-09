@@ -13,12 +13,10 @@ const Navbar = ({handleToggleCart, qty, hasCart = false}) => {
                 <li className={styles.centerLink}>
                     <Link to="/shop">Shop</Link>
                 </li>
-                {hasCart?(
+                {hasCart&&(
                     <li>
                         <button className={styles.cart} onClick={handleToggleCart}>Cart ({qty})</button>
                     </li>
-                ):(
-                    <li className={styles.navbarFiller}></li>
                 )}
             </ul>
         </nav>

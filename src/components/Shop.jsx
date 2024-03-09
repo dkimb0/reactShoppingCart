@@ -79,9 +79,10 @@ const Shop =() => {
                                         <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Product</th>
-                                                <th>Price</th>
-                                                <th>Quantity</th>
+                                                <th className={styles.titleColumn}>Product</th>
+                                                <th className={styles.priceColumn}>Price</th>
+                                                <th className={styles.quantityColumn}>Quantity</th>
+                                                <th className={styles.totalPriceColumn}>Total</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
@@ -92,9 +93,10 @@ const Shop =() => {
                                                         <img className={styles.cartThumbnail}
                                                         src={item.image} alt="thumbnail" />
                                                     </td>
-                                                    <td>{item.title}</td>
-                                                    <td>${item.price}</td>
+                                                    <td className={styles.titleColumn}>{item.title}</td>
+                                                    <td>${item.price.toFixed(2)}</td>
                                                     <td>{item.quantity}</td>
+                                                    <td>${(item.quantity * item.price).toFixed(2)}</td>
                                                     <td>
                                                         <button onClick={() => handleDeleteCart(item.id)}>X</button>
                                                     </td>
@@ -108,7 +110,7 @@ const Shop =() => {
                                         return accumulator + item.quantity * item.price;
                                     }, 0).toFixed(2)}</p>
 
-                                    <button className={styles.checkoutButton}>Go to Checkout!</button>
+                                    <button className={styles.checkoutButton}>Checkout</button>
                                  </>
                                 )
                             )}

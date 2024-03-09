@@ -29,6 +29,7 @@
 
 input{
     max-width: 2rem;
+    font-family: 'Space Mono', 'Courier New', Courier, monospace;
     text-align: center;
 }
 
@@ -37,4 +38,8 @@ input{
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
+}
+
+button{
+    font-family: 'Space Mono', 'Courier New', Courier, monospace;
 }

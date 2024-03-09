@@ -1,0 +1,8 @@
+:root{
+    font-family: 'Space Mono', 'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+html, body{
+    margin: 0;
+}
