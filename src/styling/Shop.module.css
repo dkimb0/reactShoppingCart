@@ -25,6 +25,7 @@ h1 {
     right: 0;
 
     min-width: 50%;
+    max-width: 70%;
     max-height: 80%;
 
     padding: 2rem;
