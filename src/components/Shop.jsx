@@ -3,6 +3,8 @@ import Navbar from './Navbar';
 import ProductCard from "./ProductCard";
 import styles from "../styling/Shop.module.css"
 
+import calculateTotalCartQuantity from './calculateTotalCartQuantity';
+import calculateCartSubtotal from './calculateCartSubtotal';
 
 
 
@@ -18,13 +20,9 @@ const Shop =() => {
 
     const [loading, setLoading] = useState(true);
     const [cartOpen, setCartOpen] = useState(false);
-
-    let qty = cartArray.map(item => {
-        return item.quantity;
-    }).reduce((total, current) => {
-        return total + current
-    }, 0)
     
+    let qty = calculateTotalCartQuantity(cartArray);
+
     useEffect(() => {
         localStorage.setItem('cartArray', JSON.stringify(cartArray))
     }, [cartArray]);
@@ -60,8 +58,6 @@ const Shop =() => {
     const handleDeleteCart =(id) => {
         setCartArray(currentArray => {
             const newArray = currentArray.filter(item => item.id !== id);
-            console.log(currentArray);
-            console.log(newArray);
             return newArray;
         })
     }
@@ -106,9 +102,7 @@ const Shop =() => {
                                         </tbody>
                                     </table>
 
-                                    <p>Subtotal: ${cartArray.reduce((accumulator, item) => {
-                                        return accumulator + item.quantity * item.price;
-                                    }, 0).toFixed(2)}</p>
+                                    <p>Subtotal: ${calculateCartSubtotal(cartArray)}</p>
 
                                     <button className={styles.checkoutButton}>Checkout</button>
                                  </>
