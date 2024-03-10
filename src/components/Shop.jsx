@@ -68,6 +68,7 @@ const Shop =() => {
             <Navbar handleToggleCart={handleToggleCart} qty={qty} hasCart ={true}/>
             {cartOpen && (
                         <div className={styles.cartContainer} >
+                            <button className={styles.cartCloseBtn} onClick={handleToggleCart}>Close</button>
                             {(cartArray.length === 0 ? (
                                 <p>Cart is empty!</p>):(
                                  <>
