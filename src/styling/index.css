@@ -1,6 +1,7 @@
 :root{
     font-family: 'Space Mono', 'Courier New', Courier, monospace;
     box-sizing: border-box;
+    overflow-x: hidden;
 }
 
 html, body{
